@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  titanic_ml:
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/src
+      - ./data:/data
+      - ./entrypoint.sh:/entrypoint.sh
+
+    entrypoint:
+      - /entrypoint.sh
